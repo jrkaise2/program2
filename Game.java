@@ -1,52 +1,52 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: John Kaiserlik 
+ * Program 2 - MyGame
+ * CSC230-02 Spring 2016
  */
-package mygame;
 
-/**
- *
- * @author JNWHITWO
- */
 public class Game {
-    private String gameName;
+    private String gameName = "Connect Four";
     private int numPlayers;
     private int currPlayer;
     private int tries;
     
-    public Game(String name, int players)
-    {
-        gameName = name;
-        numPlayers = players;
-        currPlayer = 1;
-        tries = 0;
-    }
-    
-    public String getName() { return gameName; }
-    public int currentTurn() { return currPlayer; }
-    public void next()
-    {
-        if(currPlayer == 1)
-        {
-            currPlayer = 2;
-        }
-        else
-        {
-            currPlayer = 1;
-        }
-        
-        tries++;
-    }
-    public void winner()
-    {
-        System.out.println("Player " + currPlayer + " has won " + gameName + "!!!");
-        System.out.println("The game took " + getTries() + " to finish.");
-    }
-    
-    public int getTries()
-    {
-        return tries;
+public Game(){
+    numPlayers = 0;
+    currPlayer = 0;
+    tries = 0;
+}
+
+    public Game(String name, int players) {
+        this.gameName = name;
+        this.numPlayers = players;
+        this.currPlayer = 1;
+        this.tries = 0;
     }
 
+    public String getName() {
+        return this.gameName;
+    }
+
+    public int currentTurn() {
+        return this.currPlayer;
+    }
+    
+    public void next() {
+        this.currPlayer = this.currPlayer == 1 ? 2 : 1;
+        ++this.tries;
+    }
+
+    public void winner() {
+        System.out.println("Player " + this.currPlayer + " has won " + this.gameName + "!!!");
+        System.out.println("The game took " + this.getTries() + " to finish.");
+    }
+
+    public int getTries() {
+        return this.tries;
+    }
+    public int setNumPlayers(int num){
+       return this.numPlayers = num;
+    }
+   
 }
+
